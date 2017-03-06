@@ -1,0 +1,11 @@
+[Unit]
+Description="Operator Server Cabable"
+[Service]
+PIDFile=/var/lock/subsys/cabable
+ExecStart=/usr/lib/jvm/java-8-oracle/bin/java -jar /home/cababletech/cabable-inventory/cabable-inventory/target/inventory-1.1.jar server /home/cababletech/cabable-inventory/cabable-inventory/cabable.yml  
+Type=simple
+ExecStop=/bin/kill -9 $MAINPID
+User=cababletech
+Restart=always
+[Install]
+WantedBy=multi-user.target
